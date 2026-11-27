@@ -1,3 +1,7 @@
+export function generateStaticParams() {
+  return [{ role: "admin" }, { role: "owner" }, { role: "customer" }];
+}
+
 export default async function DashboardPage({
   params,
 }: {
