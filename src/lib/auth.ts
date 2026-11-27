@@ -1,3 +1,4 @@
+import { jwt } from "better-auth/plugins";
 import { betterAuth } from "better-auth";
 import { mongodbAdapter } from "@better-auth/mongo-adapter";
 import { db } from "./mongodb";
@@ -25,4 +26,18 @@ export const auth = betterAuth({
       },
     },
   },
+    plugins: [
+    jwt({
+      jwt: {
+        issuer: process.env.BETTER_AUTH_URL,
+        audience: "equipment-rental-api",
+        expirationTime: "15m",
+        definePayload: ({ user }) => ({
+          id: user.id,
+          email: user.email,
+          role: user.role,
+        }),
+      },
+    }),
+  ],
 });
