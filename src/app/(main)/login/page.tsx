@@ -44,7 +44,7 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center px-4 py-10">
+    <div className="flex items-center justify-center px-4 py-16">
       <Card className="w-full max-w-md">
         <CardHeader>
           <CardTitle>Welcome back</CardTitle>
@@ -95,6 +95,6 @@ export default function LoginPage() {
           </p>
         </CardContent>
       </Card>
-    </main>
+    </div>
   );
 }
