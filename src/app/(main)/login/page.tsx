@@ -34,7 +34,14 @@ export default function LoginPage() {
     }
 
     toast.success("Login successful!");
-    router.push(getDashboardPath(data?.user.role));
+    const redirect = new URLSearchParams(window.location.search).get(
+      "redirect",
+    );
+    const safeRedirect =
+      redirect && redirect.startsWith("/") && !redirect.startsWith("//")
+        ? redirect
+        : null;
+    router.push(safeRedirect ?? getDashboardPath(data?.user.role));
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
