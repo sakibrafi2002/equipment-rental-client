@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
+export const instant = false;
+
 export default function CustomerDashboardPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-4">
